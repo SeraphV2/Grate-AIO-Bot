@@ -24,8 +24,6 @@ Grate-AIO-Bot is a comprehensive, all-in-one Discord bot built with Python and d
     -   Get random animal pictures with `cat` and `dog`.
 -   **RSS Feed Monitoring:**
     -   Automatically posts updates from your favorite RSS feeds directly into a Discord channel.
--   **Remote Server Management:**
-    -   Allows whitelisted administrators to execute powerful commands (like announcements or a server nuke) on any server the bot is in, all from a central control server.
 
 ## Installation
 
