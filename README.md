@@ -55,6 +55,70 @@ Grate-AIO-Bot is a comprehensive, all-in-one Discord bot built with Python and d
     python bot.py
     ```
 
+## Music System Setup
+
+The bot includes a **high-performance YouTube music system** with queueing, search support, and cross-platform streaming using **yt-dlp + FFmpeg**.
+
+This system works on **Windows**, **Linux**, and **VPS servers**.
+
+---
+
+# 🔧 Requirements
+
+You must have **FFmpeg** installed for audio streaming to work.
+
+---
+
+# 🪟 Windows Setup
+
+1. **Download FFmpeg**  
+   https://ffmpeg.org/download.html
+
+2. **Extract** the ZIP file
+
+3. **Move it to C: drive**
+
+**Should look something like this : C:\ffmpeg **
+
+4. **Add FFmpeg to your System PATH**
+- Press `Win + R`
+- Type `sysdm.cpl`
+- Open **Advanced → Environment Variables**
+- Under **System Variables**, select `Path`
+- Click **Edit**
+- Click **New**
+- Add:
+  ```
+  C:\ffmpeg\bin
+  ```
+
+5. **Restart your PC**
+
+6. **Verify**
+Open Command Prompt:
+    ```
+    ffmpeg -version
+    ```
+**You should see FFmpeg version information.**
+
+## 🐧 Linux (Ubuntu / Debian / VPS)
+
+1. **Install FFmpeg:**
+    ```
+    sudo apt update
+    sudo apt install ffmpeg -y
+    ```
+
+2. **Verify:**
+   ```
+   ffmpeg -version
+   ```
+3. **Python Requirememnts:**
+   Install the required Python packages:
+   ```
+   pip install -U discord.py yt-dlp PyNaCl
+   ```
+
 ## Configuration
 
 All core settings are located in `settings.py`. These values are used as defaults when the bot joins a new server or when specific systems are initialized.
