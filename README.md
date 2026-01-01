@@ -165,9 +165,9 @@ MAKE SURE YOU RUN THE JOIN COMMAND BEFORE RUNNING .PLAY!
 
 Make sure FFmpeg is installed:
 
-    ```bash
-    ffmpeg -version
-    ```
+```bash
+ffmpeg -version
+```
 
 ## 403 Forbidden / No Audio
 
