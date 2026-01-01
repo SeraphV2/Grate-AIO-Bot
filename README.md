@@ -29,6 +29,8 @@ Grate-AIO-Bot is a comprehensive, all-in-one Discord bot built with Python and d
     -   This can be used to give members an incentive to chat in the server and be rewarded with levcel based channels.
 -   **Custom Commands**
     -   Create custom commands to have responses to messages.
+-   **Reaction Roles**
+    -   Tired of members asking for roles, well here you have reaction roles(self-explandatory).
 
 
 ## Installation
