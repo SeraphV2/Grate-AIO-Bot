@@ -12,9 +12,9 @@ dotenv.load_dotenv()
 # ==================================================
 
 DISCORD_BOT_TOKEN = os.getenv("DISCORD_BOT_TOKEN") or "PUT_TOKEN_IN_ENV"
-BOT_NAME = "Nexonix Bot"
-BOT_AUTHOR = "Nexonix Bot By Paradym | Nexonix Team"
-BOT_STATUS = "Providing Support"
+BOT_NAME = "" # Name of the bot
+BOT_AUTHOR = "" # Feel special and add our own name
+BOT_STATUS = "" # This is the rich presence of the bot - Basically the bots bio
 
 # Fallback prefix ONLY (used for DMs or DB failure)
 BOT_PREFIX = "."
