@@ -179,7 +179,7 @@ For best audio quality:
 
 - Use **48kbps or higher**  
 - Disable **Discord voice suppression** in the voice channel  
-- Run your bot on a **VPS for zero lag**
+- Run your bot on a **VPS for minimal lag**
 
 
 ## Configuration
