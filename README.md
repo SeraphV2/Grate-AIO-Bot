@@ -119,6 +119,69 @@ Open Command Prompt:
    pip install -U discord.py yt-dlp PyNaCl
    ```
 
+## 🎵 Commands
+
+| Command | Description |
+|--------|-------------|
+| `.join` | Join your voice channel |
+| `.leave` | Leave voice & clear queue |
+| `.play <song>` | Play YouTube link or search |
+| `.pause` | Pause playback |
+| `.resume` | Resume playback |
+| `.skip` | Skip current song |
+| `.stop` | Stop & clear queue |
+| `.queue` | View song queue |
+
+---
+
+## 📌 Examples
+
+    ```
+    .play never gonna give you up
+    .play https://youtube.com/watch?v=dQw4w9WgXcQ
+    ```
+
+## 🔥 Features
+
+- 🔍 YouTube search support  
+- 🎶 Audio-only optimized streaming  
+- 📜 Song queue system  
+- ⏭ Auto-play next song  
+- 💻 Works on Windows, Linux & VPS  
+- 🚀 Low-latency playback  
+- 🔊 Auto reconnect & stream recovery  
+
+---
+
+## ⚠️ Common Issues
+
+### ❌ Bot joins but no sound
+
+Make sure FFmpeg is installed:
+
+    ```
+    ffmpeg -version
+    ```
+
+## ❌ 403 Forbidden / No Audio
+
+Your bot needs the following voice permissions:
+
+- **Connect**  
+- **Speak**  
+- **Use Voice Activity**  
+
+---
+
+## 💎 Premium Tip
+
+For best audio quality:
+
+- Use **48kbps or higher**  
+- Disable **Discord voice suppression** in the voice channel  
+- Run your bot on a **VPS for zero lag**
+
+
 ## Configuration
 
 All core settings are located in `settings.py`. These values are used as defaults when the bot joins a new server or when specific systems are initialized.
