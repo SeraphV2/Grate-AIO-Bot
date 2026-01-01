@@ -257,10 +257,6 @@ The bot uses `.` as its default prefix. Here is an overview of the main commands
 -   `.cat` / `.dog`: Sends a random picture of a cat or dog.
 -   `.howgay [@user]`: Rates how gay you or another user is.
 
-### Remote Administration
--   `.servers`: Lists all servers the bot is in (owner only).
--   `.remote <server_id> <command> [args]`: Executes a command on a remote server.
-    -   _Example_: `.remote 123456789 announce #general Hello from the control server!`
  
 ---
 
