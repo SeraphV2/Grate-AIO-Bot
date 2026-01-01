@@ -8,7 +8,7 @@ import dotenv
 dotenv.load_dotenv()
 
 # ==================================================
-# BOT CORE (GLOBAL – NEVER PER GUILD)
+# BOT CORE 
 # ==================================================
 
 DISCORD_BOT_TOKEN = os.getenv("DISCORD_BOT_TOKEN") or "PUT_TOKEN_IN_ENV"
