@@ -1,7 +1,7 @@
 # Grate-AIO-Bot
 [![Ask DeepWiki](https://devin.ai/assets/askdeepwiki.png)](https://deepwiki.com/SeraphV2/Grate-AIO-Bot)
 
-Grate-AIO-Bot is a comprehensive, all-in-one Discord bot built with Python and discord.py. It offers a wide array of features ranging from robust server security and moderation to member engagement and utility commands.
+Grate-AIO-Bot is a comprehensive, all-in-one Discord bot built with Python and discord.py. It offers a wide array of features ranging from robust server security and moderation to member engagement and utility commands. Run .help to see all commands. 
 
 ## Features
 
@@ -24,6 +24,12 @@ Grate-AIO-Bot is a comprehensive, all-in-one Discord bot built with Python and d
     -   Get random animal pictures with `cat` and `dog`.
 -   **RSS Feed Monitoring:**
     -   Automatically posts updates from your favorite RSS feeds directly into a Discord channel.
+-   **User Leveling**
+    -   Leveling system which gives members a role based on how much xp they have gained.
+    -   This can be used to give members an incentive to chat in the server and be rewarded with levcel based channels.
+-   **Custom Commands**
+    -   Create custom commands to have responses to messages.
+
 
 ## Installation
 
@@ -199,9 +205,6 @@ You **must** replace the placeholder IDs in the various cog files and `settings.
     -   `rss_channel_id`
 -   `cogs/logs/logs.py`:
     -   `LOG_CHANNEL_ID`
--   `cogs/remote/remote.py`:
-    -   `ALLOWED_IDS`: A set of user IDs who can use remote commands.
-    -   `CONTROL_SERVER_ID`: The ID of the server from which remote commands can be executed.
 
 ### System Toggles
 You can enable or disable entire systems globally within `settings.py`:
