@@ -258,3 +258,13 @@ The bot uses `.` as its default prefix. Here is an overview of the main commands
 -   `.servers`: Lists all servers the bot is in (owner only).
 -   `.remote <server_id> <command> [args]`: Executes a command on a remote server.
     -   _Example_: `.remote 123456789 announce #general Hello from the control server!`
+ 
+---
+
+## Bugs/Issues
+
+For any bugs or issues please:
+
+- Use **48kbps or higher**  
+- Disable **Discord voice suppression** in the voice channel  
+- Run your bot on a **VPS for minimal lag**
