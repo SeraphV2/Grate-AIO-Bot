@@ -94,7 +94,7 @@ You must have **FFmpeg** installed for audio streaming to work.
 - Click **Edit**
 - Click **New**
 - Add:
-  ```
+  ```bash
   C:\ffmpeg\bin
   ```
 
@@ -102,7 +102,7 @@ You must have **FFmpeg** installed for audio streaming to work.
 
 6. **Verify**
 Open Command Prompt:
-    ```
+    ```bash
     ffmpeg -version
     ```
 **You should see FFmpeg version information.**
@@ -110,18 +110,18 @@ Open Command Prompt:
 ## Linux (Ubuntu / Debian / VPS)
 
 1. **Install FFmpeg:**
-    ```
+    ```bash
     sudo apt update
     sudo apt install ffmpeg -y
     ```
 
 2. **Verify:**
-   ```
+   ```bash
    ffmpeg -version
    ```
 3. **Python Requirememnts:**
    Install the required Python packages:
-   ```
+   ```bash
    pip install -U discord.py yt-dlp PyNaCl
    ```
 
@@ -142,10 +142,10 @@ Open Command Prompt:
 
 ## Examples
 
-    ```
-    MAKE SURE YOU RUN THE JOIN COMMAND BEFORE RUNNING .PLAY!
-    .play https://youtube.com/watch?v=dQw4w9WgXcQ
-    ```
+```bash
+MAKE SURE YOU RUN THE JOIN COMMAND BEFORE RUNNING .PLAY!
+.play https://youtube.com/watch?v=dQw4w9WgXcQ
+```
 
 ## Features
 
@@ -165,7 +165,7 @@ Open Command Prompt:
 
 Make sure FFmpeg is installed:
 
-    ```
+    ```bash
     ffmpeg -version
     ```
 
