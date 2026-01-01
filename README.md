@@ -265,6 +265,6 @@ The bot uses `.` as its default prefix. Here is an overview of the main commands
 
 For any bugs or issues please:
 
-- Use **48kbps or higher**  
-- Disable **Discord voice suppression** in the voice channel  
-- Run your bot on a **VPS for minimal lag**
+- Join the discord
+  [![Discord](https://devin.ai/assets/discord.png)](https://discord.gg/SAAW66BHjQ)
+- Submit a bug report via ticketing system 
