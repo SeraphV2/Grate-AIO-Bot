@@ -11,19 +11,19 @@ LOG_CHANNEL_ID = 1350069823916343365  # Replace with your desired channel ID
 
 #---------------------#General#---------------------#
 
-DISCORD_BOT_TOKEN = "MTQ0NjQ1MzQ3NDUxMzUxODY4Mw.GAqWJr.WwOROxnskmeAu7wEBTBsWU6iQKoFkoDCQS6PIM"  # Discord bot token from environment variable
-BOT_STATUS = "Providing Support"  # Status text of the bot
+DISCORD_BOT_TOKEN = ""  # Discord bot token from environment variable
+BOT_STATUS = ""  # Status text of the bot
 BOT_PREFIX = "."  # Command prefix
-BOT_NAME = "Nexonix Bot" # Bot name
-BOT_AUTHOR = "Nexonix Bot By Paradym A Member Of The Nexonix Team"  # Bot author
-SUPPORT_CATEGORY_ID = 1447890979507146763  # Category where tickets go
-SUPPORT_ROLE_ID = 1350069822662119504      # Support team role ID
-SUPPORT_PANEL_CHANNEL_ID = 1449468176638148668  # Channel where panel is sent
+BOT_NAME = "" # Bot name
+BOT_AUTHOR = ""  # Bot author
+SUPPORT_CATEGORY_ID =   # Category where tickets go
+SUPPORT_ROLE_ID =      # Support team role ID
+SUPPORT_PANEL_CHANNEL_ID =   # Channel where panel is sent
 
 # ------------------ WELCOME SETTINGS ------------------ #
 
 # The channel ID where welcome messages will be sent
-WELCOME_CHANNEL_ID = 123456789012345678  # <-- Replace with your actual channel ID
+WELCOME_CHANNEL_ID =   # <-- Replace with your actual channel ID
 
 # Optional: Customize the welcome message
 # You can use placeholders: {member} = mention of the new member, {server} = server name
@@ -35,8 +35,8 @@ ANTI_NUKE_ENABLED = True
 
 # Multiple owners (THESE USERS ARE IMMUNE)
 ANTI_NUKE_OWNERS = [
-    960216572478246992,
-    976205015834325003
+    ,
+    
 ]
 
 # Action thresholds (within TIME_WINDOW seconds)
@@ -65,9 +65,9 @@ BACKUP_FILE = "server_backup.json"
 
 VERIFICATION_ENABLED = True
 
-VERIFICATION_CHANNEL_ID = 1449477926385881108  # channel where verify panel is sent
-VERIFIED_ROLE_ID = 1350069822662119501          # role given after verification
-UNVERIFIED_ROLE_ID = 1449477003282485351        # role given on join
+VERIFICATION_CHANNEL_ID =   # channel where verify panel is sent
+VERIFIED_ROLE_ID =           # role given after verification
+UNVERIFIED_ROLE_ID =         # role given on join
 
 VERIFICATION_MESSAGE_TITLE = "✅ Server Verification"
 VERIFICATION_MESSAGE_DESCRIPTION = (
@@ -93,7 +93,7 @@ RSS_FEEDS = [
     "https://example.com/feed1.xml",
     "https://example.com/feed2.xml"
 ]
-RSS_CHANNEL_ID = 1350069823576477812  # Channel to post feed items
+RSS_CHANNEL_ID =   # Channel to post feed items
 RSS_POLL_INTERVAL = 300  # In seconds (5 minutes)
 
 #---------------------#Leveling System#---------------------#
