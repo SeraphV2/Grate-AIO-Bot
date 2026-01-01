@@ -78,7 +78,7 @@ You must have **FFmpeg** installed for audio streaming to work.
 
 3. **Move it to C: drive**
 
-**Should look something like this : C:\ffmpeg **
+**Should look something like this : C:\ffmpeg**
 
 4. **Add FFmpeg to your System PATH**
 - Press `Win + R`
