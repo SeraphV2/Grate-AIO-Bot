@@ -14,7 +14,7 @@ intents = discord.Intents.all()
 client = commands.Bot(command_prefix=settings.BOT_PREFIX, help_command=None, intents=intents)
 client.anti_alt_enabled = True   # Anti-Alt system toggle
 client.anti_raid_enabled = True  # Anti-Raid system toggle
-cogs: list = ["cogs.info.info","cogs.misc.misc", "cogs.newmember.newmember", "cogs.admin.admin", "cogs.remote.remote", "cogs.serverlist.serverlist", "cogs.antinuke.antinuke", "cogs.fun.fun", "cogs.support.support", "cogs.verify.verify", "cogs.antialt.antialt", "cogs.logs.logs", "cogs.rss.rss"]
+cogs: list = ["cogs.info.info","cogs.misc.misc", "cogs.newmember.newmember", "cogs.admin.admin", "cogs.antinuke.antinuke", "cogs.fun.fun", "cogs.support.support", "cogs.verify.verify", "cogs.antialt.antialt", "cogs.logs.logs", "cogs.rss.rss"]
 
 @client.event
 async def on_ready():
