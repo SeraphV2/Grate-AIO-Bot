@@ -63,13 +63,13 @@ This system works on **Windows**, **Linux**, and **VPS servers**.
 
 ---
 
-# 🔧 Requirements
+# Requirements
 
 You must have **FFmpeg** installed for audio streaming to work.
 
 ---
 
-# 🪟 Windows Setup
+# Windows Setup
 
 1. **Download FFmpeg**  
    https://ffmpeg.org/download.html
@@ -101,7 +101,7 @@ Open Command Prompt:
     ```
 **You should see FFmpeg version information.**
 
-## 🐧 Linux (Ubuntu / Debian / VPS)
+## Linux (Ubuntu / Debian / VPS)
 
 1. **Install FFmpeg:**
     ```
@@ -119,7 +119,7 @@ Open Command Prompt:
    pip install -U discord.py yt-dlp PyNaCl
    ```
 
-## 🎵 Commands
+## Commands
 
 | Command | Description |
 |--------|-------------|
@@ -134,28 +134,28 @@ Open Command Prompt:
 
 ---
 
-## 📌 Examples
+## Examples
 
     ```
-    .play never gonna give you up
+    MAKE SURE YOU RUN THE JOIN COMMAND BEFORE RUNNING .PLAY!
     .play https://youtube.com/watch?v=dQw4w9WgXcQ
     ```
 
-## 🔥 Features
+## Features
 
-- 🔍 YouTube search support  
-- 🎶 Audio-only optimized streaming  
-- 📜 Song queue system  
-- ⏭ Auto-play next song  
-- 💻 Works on Windows, Linux & VPS  
-- 🚀 Low-latency playback  
-- 🔊 Auto reconnect & stream recovery  
+- YouTube search support  
+- Audio-only optimized streaming  
+- Song queue system  
+- Auto-play next song  
+- Works on Windows, Linux & VPS  
+- Low-latency playback  
+- Auto reconnect & stream recovery  
 
 ---
 
-## ⚠️ Common Issues
+## Common Issues
 
-### ❌ Bot joins but no sound
+### Bot joins but no sound
 
 Make sure FFmpeg is installed:
 
@@ -163,7 +163,7 @@ Make sure FFmpeg is installed:
     ffmpeg -version
     ```
 
-## ❌ 403 Forbidden / No Audio
+## 403 Forbidden / No Audio
 
 Your bot needs the following voice permissions:
 
@@ -173,7 +173,7 @@ Your bot needs the following voice permissions:
 
 ---
 
-## 💎 Premium Tip
+## Premium Tip
 
 For best audio quality:
 
