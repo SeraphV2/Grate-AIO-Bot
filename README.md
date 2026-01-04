@@ -35,7 +35,7 @@ Grate-AIO-Bot is a comprehensive, all-in-one Discord bot built with Python and d
 ## Full feature list in the discord
 
 ## Installation
-
+# Linux
 1.  **Clone the repository:**
     ```bash
     git clone https://github.com/SeraphV2/Grate-AIO-Bot.git
@@ -58,6 +58,31 @@ Grate-AIO-Bot is a comprehensive, all-in-one Discord bot built with Python and d
     Open `settings.py` and modify the placeholders to match your server's needs. This includes channel IDs, role IDs, and other behavior toggles. See the [Configuration](#configuration) section for more details.
 
 5.  **Run the bot:**
+    ```bash
+    python bot.py
+    ```
+# Windows
+1.  **Download the repository:**
+2.  **Open cmd in repo folder:**
+    ```bash
+    Click on file path in file manager and when it gets highlighted type cmd
+    ```
+3.  **Install dependencies:**
+    It is recommended to use a virtual environment.
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+4.  **Create an environment file:**
+    Create a file named `.env` in the root directory of the project and add your bot's token:
+    ```env
+    DISCORD_BOT_TOKEN="YOUR_BOT_TOKEN_HERE"
+    ```
+
+5.  **Configure the Bot:**
+    Open `settings.py` and modify the placeholders to match your server's needs. This includes channel IDs, role IDs, and other behavior toggles. See the [Configuration](#configuration) section for more details.
+
+6.  **Run the bot:**
     ```bash
     python bot.py
     ```
