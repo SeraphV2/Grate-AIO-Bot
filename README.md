@@ -62,8 +62,8 @@ Grate-AIO-Bot is a comprehensive, all-in-one Discord bot built with Python and d
     python bot.py
     ```
 ## Windows
-1.  **Download the repository:**
-2.  **Open cmd in repo folder:**
+1.  **Download the repository**
+2.  **Open the command prompt in the repo folder:**
     ```bash
     Click on file path in file manager and when it gets highlighted type cmd
     ```
