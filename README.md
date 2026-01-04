@@ -31,7 +31,8 @@ Grate-AIO-Bot is a comprehensive, all-in-one Discord bot built with Python and d
     -   Create custom commands to have responses to messages.
 -   **Reaction Roles**
     -   Tired of members asking for roles, well here you have reaction roles(self-explandatory).
-
+      
+## Full feature list in the discord
 
 ## Installation
 
