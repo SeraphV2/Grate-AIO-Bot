@@ -34,8 +34,8 @@ Grate-AIO-Bot is a comprehensive, all-in-one Discord bot built with Python and d
       
 ## Full feature list in the discord
 
-## Installation
-# Linux
+# Installation
+## Linux
 1.  **Clone the repository:**
     ```bash
     git clone https://github.com/SeraphV2/Grate-AIO-Bot.git
@@ -61,7 +61,7 @@ Grate-AIO-Bot is a comprehensive, all-in-one Discord bot built with Python and d
     ```bash
     python bot.py
     ```
-# Windows
+## Windows
 1.  **Download the repository:**
 2.  **Open cmd in repo folder:**
     ```bash
