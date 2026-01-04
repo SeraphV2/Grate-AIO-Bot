@@ -473,6 +473,30 @@ class AdminPanelView(discord.ui.View):
         embed.add_field(name="Send reaction roles to the channel it is executed in", value="`.reactionroles`", inline=False)
 
         await interaction.response.edit_message(embed=embed, view=self)
+        
+    @discord.ui.button(
+        label="Support",
+        emoji="🎫",
+        style=discord.ButtonStyle.success,
+        custom_id="admin_support"
+    )
+    async def support(self, interaction: discord.Interaction, button: discord.ui.Button):
+        embed = discord.Embed(
+            title="🎫 Support Ticket System",
+            colour=discord.Color.green()
+        )
+
+        embed.add_field(name="Open Ticket Panel",value="`.supportpanel`",inline=False)
+        embed.add_field(name="Close Ticket",value="`.close` (inside a ticket channel)",inline=False)
+        embed.add_field(name="What it does",value=(
+                "• Users click **Open Ticket** button\n"
+                "• A private ticket channel is created\n"
+                "• Support role + user can see it\n"
+                "• Admins/support can close it"
+            ),inline=False
+        )
+
+        await interaction.response.edit_message(embed=embed, view=self)
 
 class Admin(commands.Cog):
     def __init__(self, bot: commands.Bot):
