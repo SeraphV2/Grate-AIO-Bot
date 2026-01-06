@@ -4,11 +4,14 @@ import json
 import os
 import time
 from PIL import Image, ImageDraw, ImageFont
+from io import BytesIO
 
 from settings import *
 
 LEVELS_FILE = "levels.json"
 
+
+# ---------------- FILE UTILS ---------------- #
 
 def load_levels():
     if not os.path.exists(LEVELS_FILE):
@@ -29,13 +32,18 @@ def xp_for_next_level(level):
     return 100 + (level * 75)
 
 
+# ================================
+#            COG
+# ================================
+
 class Leveling(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self.levels = load_levels()
         self.text_cooldowns = {}
-        self.voice_tracker = {}
         self.voice_xp.start()
+
+    # ---------------- USER DATA ---------------- #
 
     def get_user(self, guild_id, user_id):
         self.levels.setdefault(guild_id, {})
@@ -45,6 +53,8 @@ class Leveling(commands.Cog):
             "prestige": 0
         })
         return self.levels[guild_id][user_id]
+
+    # ---------------- ROLES ---------------- #
 
     async def handle_level_roles(self, member, level):
         for req_level, role_id in LEVEL_ROLES.items():
@@ -71,7 +81,12 @@ class Leveling(commands.Cog):
             if role:
                 await member.add_roles(role)
 
-            await member.send(f"🌟 You prestiged! Prestige level **{data['prestige']}**")
+            try:
+                await member.send(f"🌟 You prestiged! Prestige **{data['prestige']}**")
+            except:
+                pass
+
+    # ---------------- MESSAGE XP ---------------- #
 
     @commands.Cog.listener()
     async def on_message(self, message):
@@ -98,17 +113,8 @@ class Leveling(commands.Cog):
             await self.handle_level_roles(message.author, data["level"])
             await self.handle_prestige(message.author, data)
 
-            channel = (
-                self.bot.get_channel(LEVEL_UP_CHANNEL_ID)
-                if LEVEL_UP_CHANNEL_ID else message.channel
-            )
-
-            await channel.send(
-                LEVEL_UP_MESSAGE.format(
-                    member=message.author.mention,
-                    level=data["level"]
-                )
-            )
+            channel = self.bot.get_channel(LEVEL_UP_CHANNEL_ID) if LEVEL_UP_CHANNEL_ID else message.channel
+            await channel.send(LEVEL_UP_MESSAGE.format(member=message.author.mention, level=data["level"]))
 
         save_levels(self.levels)
 
@@ -125,10 +131,7 @@ class Leveling(commands.Cog):
                     if member.bot:
                         continue
 
-                    gid = str(guild.id)
-                    uid = str(member.id)
-                    data = self.get_user(gid, uid)
-
+                    data = self.get_user(str(guild.id), str(member.id))
                     data["xp"] += VOICE_XP_PER_MINUTE
 
                     needed = xp_for_next_level(data["level"])
@@ -147,12 +150,15 @@ class Leveling(commands.Cog):
         member = member or ctx.author
         data = self.get_user(str(ctx.guild.id), str(member.id))
 
-        await ctx.send(
-            f"📊 **{member.display_name}**\n"
-            f"Level: **{data['level']}**\n"
-            f"XP: **{data['xp']}** / {xp_for_next_level(data['level'])}\n"
-            f"Prestige: **{data['prestige']}**"
+        embed = discord.Embed(
+            title=f"📊 {member.display_name}'s Level",
+            color=discord.Color.blurple()
         )
+        embed.add_field(name="Level", value=data["level"])
+        embed.add_field(name="Prestige", value=data["prestige"])
+        embed.add_field(name="XP", value=f"{data['xp']} / {xp_for_next_level(data['level'])}")
+
+        await ctx.send(embed=embed)
 
     @commands.command()
     async def leaderboard(self, ctx):
@@ -167,33 +173,87 @@ class Leveling(commands.Cog):
         )[:10]
 
         embed = discord.Embed(title="🏆 Leaderboard", color=discord.Color.gold())
+
         for i, (uid, data) in enumerate(top, 1):
             member = ctx.guild.get_member(int(uid))
             name = member.display_name if member else "Unknown"
             embed.add_field(
                 name=f"{i}. {name}",
-                value=f"P{data['prestige']} | L{data['level']} | XP {data['xp']}",
+                value=f"⭐ {data['prestige']} | 🔰 {data['level']} | XP {data['xp']}",
                 inline=False
             )
 
         await ctx.send(embed=embed)
 
+    # ---------------- PREMIUM RANK CARD ---------------- #
+
     @commands.command()
     async def rank(self, ctx, member: discord.Member = None):
         member = member or ctx.author
-        data = self.get_user(str(ctx.guild.id), str(member.id))
+        gid = str(ctx.guild.id)
+        uid = str(member.id)
+        data = self.get_user(gid, uid)
 
-        img = Image.new("RGB", (600, 180), (30, 30, 30))
+        # Get rank position
+        guild_data = self.levels.get(gid, {})
+        sorted_users = sorted(
+            guild_data.items(),
+            key=lambda x: (x[1]["prestige"], x[1]["level"], x[1]["xp"]),
+            reverse=True
+        )
+        rank_pos = next(i + 1 for i, (u, _) in enumerate(sorted_users) if u == uid)
+
+        level = data["level"]
+        xp = data["xp"]
+        prestige = data["prestige"]
+        needed = xp_for_next_level(level)
+        percent = xp / needed
+
+        W, H = 900, 280
+        img = Image.new("RGBA", (W, H), (0, 0, 0, 0))
         draw = ImageDraw.Draw(img)
 
-        font = ImageFont.load_default()
+        # Neon gradient
+        for y in range(H):
+            r = int(40 + y * 0.4)
+            g = int(20 + y * 0.2)
+            b = int(80 + y * 0.5)
+            draw.line((0, y, W, y), fill=(r, g, b))
 
-        draw.text((20, 20), member.display_name, font=font, fill=(255, 255, 255))
-        draw.text((20, 60), f"Level: {data['level']}", font=font, fill=(255, 255, 255))
-        draw.text((20, 90), f"Prestige: {data['prestige']}", font=font, fill=(255, 255, 255))
-        draw.text((20, 120), f"XP: {data['xp']}", font=font, fill=(255, 255, 255))
+        # Glass panel
+        panel = Image.new("RGBA", (860, 240), (20, 20, 25, 220))
+        img.paste(panel, (20, 20), panel)
 
-        path = "rank.png"
+        # Fonts
+        font_big = ImageFont.truetype("arial.ttf", 38)
+        font_med = ImageFont.truetype("arial.ttf", 26)
+        font_small = ImageFont.truetype("arial.ttf", 18)
+
+        # Avatar
+        avatar_asset = member.display_avatar.with_size(128)
+        avatar_bytes = await avatar_asset.read()
+        avatar = Image.open(BytesIO(avatar_bytes)).convert("RGBA").resize((120, 120))
+
+        #glow = Image.new("RGBA", (140, 140), (20, 20, 25, 220))
+        #img.paste(glow, (50, 70), glow)
+
+        mask = Image.new("L", (120, 120), 0)
+        ImageDraw.Draw(mask).ellipse((0, 0, 120, 120), fill=255)
+        img.paste(avatar, (60, 80), mask)
+
+        # Text
+        draw.text((210, 60), member.display_name, font=font_big, fill="white")
+        draw.text((210, 110), f"LEVEL {level}", font=font_med, fill="#00ffff")
+        draw.text((210, 145), f"Prestige {prestige}", font=font_small, fill="#ffd700")
+        draw.text((210, 170), f"Rank #{rank_pos}", font=font_small, fill="#ff88ff")
+
+        # XP Bar
+        bx, by, bw, bh = 210, 215, 620, 26
+        draw.rectangle((bx, by, bx + bw, by + bh), fill="#1c1f26")
+        draw.rectangle((bx, by, bx + int(bw * percent), by + bh), fill="#00ffe1")
+        draw.text((bx, by - 22), f"{xp:,} / {needed:,} XP", font=font_small, fill="white")
+
+        path = f"rank_{member.id}.png"
         img.save(path)
         await ctx.send(file=discord.File(path))
 

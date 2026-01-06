@@ -103,21 +103,7 @@ class FunHelpView(discord.ui.View):
         embed.add_field(name=".leaderboard", value="Shows the top 10 members.", inline=False)
         await interaction.response.edit_message(embed=embed)
 
-    @discord.ui.button(label="Music", emoji="🎵", style=discord.ButtonStyle.primary, custom_id="fun_music")
-    async def music(self, interaction: discord.Interaction, button: discord.ui.Button):
-        embed = discord.Embed(
-            title="🎵 Music Commands",
-            colour=discord.Colour.dark_blue()
-        )
-        embed.add_field(name=".join", value="Join your voice channel.", inline=False)
-        embed.add_field(name=".play <song / URL>", value="Play music from YouTube.", inline=False)
-        embed.add_field(name=".pause", value="Pause the current song.", inline=False)
-        embed.add_field(name=".resume", value="Resume the song.", inline=False)
-        embed.add_field(name=".skip", value="Skip the current song.", inline=False)
-        embed.add_field(name=".stop", value="Stop playing and clear the queue.", inline=False)
-        embed.add_field(name=".queue", value="Show the current music queue.", inline=False)
-        embed.add_field(name=".leave", value="Leave the voice channel.", inline=False)
-        await interaction.response.edit_message(embed=embed)
+
 
 
 
